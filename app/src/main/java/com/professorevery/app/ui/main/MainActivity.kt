@@ -14,6 +14,7 @@ import com.professorevery.app.databinding.ActivityMainBinding
 import com.professorevery.app.model.Post
 import com.professorevery.app.ui.auth.LoginActivity
 import com.professorevery.app.ui.post.CreatePostActivity
+import com.professorevery.app.ui.post.CommentsActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
