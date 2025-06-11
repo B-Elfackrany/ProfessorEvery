@@ -13,20 +13,46 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/logo"
-            android:contentDescription="앱 로고" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/logo_main"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/languageToggleButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/language_toggle"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:minHeight="32dp"
+                app:strokeColor="@android:color/white"
+                app:strokeWidth="1dp"
+                app:cornerRadius="16dp"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="32dp"
-            android:text="교수님들만의 소통 공간"
+            android:text="@string/app_subtitle"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
@@ -49,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:hint="교육용 이메일">
+                    android:hint="@string/educational_email">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/emailInput"
@@ -65,7 +91,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
-                    android:hint="비밀번호"
+                    android:hint="@string/password"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -82,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:padding="12dp"
-                    android:text="로그인"
+                    android:text="@string/login"
                     android:textSize="16sp" />
 
                 <TextView
@@ -90,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="처음이신가요? 회원가입"
+                    android:text="@string/first_time_signup"
                     android:textColor="@color/colorPrimary" />
 
             </LinearLayout>

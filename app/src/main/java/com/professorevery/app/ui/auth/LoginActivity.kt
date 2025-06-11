@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.professorevery.app.R
 import com.professorevery.app.databinding.ActivityLoginBinding
 import com.professorevery.app.ui.main.MainActivity
 
@@ -14,6 +15,10 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Apply saved language preference
+        applyLanguagePreference()
+        
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -34,12 +39,12 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passwordInput.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "이메일과 비밀번호를 입력해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.login_email_password_required), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             if (!isEducationalEmail(email)) {
-                Toast.makeText(this, "교육용 이메일만 사용 가능합니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.educational_email_only), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -48,6 +53,10 @@ class LoginActivity : AppCompatActivity() {
 
         binding.signupButton.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
+        }
+        
+        binding.languageToggleButton.setOnClickListener {
+            toggleLanguage()
         }
     }
 
@@ -62,10 +71,42 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 } else {
-                    Toast.makeText(this, "로그인에 실패했습니다: ${task.exception?.message}", 
+                    Toast.makeText(this, getString(R.string.login_failed, task.exception?.message), 
                         Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun applyLanguagePreference() {
+        val sharedPref = getSharedPreferences("app_preferences", MODE_PRIVATE)
+        val isKorean = sharedPref.getBoolean("is_korean", false) // Default to English
+        
+        val locale = if (isKorean) java.util.Locale("ko") else java.util.Locale("en")
+        java.util.Locale.setDefault(locale)
+        val config = android.content.res.Configuration()
+        config.setLocale(locale)
+        @Suppress("DEPRECATION")
+        resources.updateConfiguration(config, resources.displayMetrics)
+    }
+
+    private fun toggleLanguage() {
+        val sharedPref = getSharedPreferences("app_preferences", MODE_PRIVATE)
+        val isCurrentlyKorean = sharedPref.getBoolean("is_korean", false)
+        
+        // Toggle the language preference
+        with(sharedPref.edit()) {
+            putBoolean("is_korean", !isCurrentlyKorean)
+            apply()
+        }
+        
+        // Show a toast message and restart activity
+        val message = if (isCurrentlyKorean) {
+            "🌐 Language changed to English"
+        } else {
+            "🌐 언어가 한국어로 변경되었습니다"
+        }
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        recreate()
     }
 
     private fun isEducationalEmail(email: String): Boolean {

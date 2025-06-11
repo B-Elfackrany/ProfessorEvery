@@ -9,11 +9,16 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- App-specific Colors -->
-    <color name="colorPrimary">@color/purple_500</color>
-    <color name="colorPrimaryDark">@color/purple_700</color>
-    <color name="colorAccent">#03A9F4</color>
+    <!-- App-specific Colors - Matching Logo Theme -->
+    <color name="colorPrimary">#2E5BBA</color>          <!-- Main logo blue -->
+    <color name="colorPrimaryDark">#1E3F8A</color>      <!-- Darker blue -->
+    <color name="colorPrimaryLight">#4F83CD</color>     <!-- Lighter blue -->
+    <color name="colorAccent">#3B82F6</color>           <!-- Accent blue -->
     <color name="textPrimary">#212121</color>
     <color name="textSecondary">#757575</color>
     <color name="divider">#BDBDBD</color>
+    
+    <!-- Additional theme colors -->
+    <color name="backgroundLight">#F8FAFC</color>       <!-- Light background -->
+    <color name="cardBackground">#FFFFFF</color>        <!-- Card background -->
 </resources> 

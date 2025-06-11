@@ -10,6 +10,16 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="dont_have_account">Don\'t have an account? Sign up</string>
     <string name="already_have_account">Already have an account? Login</string>
+    <string name="name">Name</string>
+    <string name="university">University</string>
+    <string name="educational_email">Educational Email</string>
+    
+    <!-- Validation Messages -->
+    <string name="fill_all_fields">Please fill in all fields</string>
+    <string name="educational_email_only">Only educational emails are allowed</string>
+    <string name="password_min_length">Password must be at least 6 characters</string>
+    <string name="signup_failed">Sign up failed: %s</string>
+    <string name="user_info_save_failed">Failed to save user information: %s</string>
     
     <!-- Main Strings -->
     <string name="create_post">Create Post</string>
@@ -18,4 +28,16 @@
     <string name="submit">Submit</string>
     <string name="comments">Comments</string>
     <string name="add_comment">Add a comment</string>
+    
+    <!-- Login specific -->
+    <string name="app_subtitle">Communication space for professors</string>
+    <string name="login_email_password_required">Please enter email and password</string>
+    <string name="login_failed">Login failed: %s</string>
+    <string name="first_time_signup">First time? Sign up</string>
+    
+    <!-- UI Elements -->
+    <string name="create_new_post">Create new post</string>
+    
+    <!-- Language Toggle -->
+    <string name="language_toggle">🌐 한국어</string>
 </resources> 

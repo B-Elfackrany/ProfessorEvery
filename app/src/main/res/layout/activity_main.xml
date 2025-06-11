@@ -13,8 +13,10 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            app:title="서울대학교"
-            app:titleTextColor="@android:color/white" />
+            app:title="@string/app_name"
+            app:titleTextColor="@android:color/white"
+            app:logo="@drawable/logo_main"
+            app:logoAdjustViewBounds="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -39,8 +41,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:contentDescription="새 글 작성"
+        android:contentDescription="@string/create_new_post"
         android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/colorAccent"
         app:tint="@android:color/white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout> 
